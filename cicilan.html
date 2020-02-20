@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cicilan</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript">
+
+    hitung = () => {
+        let nominal = document.getElementById('nominal').value;
+        let periode = document.getElementById('periode').value;
+        let bunga = document.getElementById('bunga').value;
+        
+        let pbln = nominal / periode;
+        let buga = (periode / 100 * bunga);
+        let cicilan = pbln + buga;
+
+        document.getElementById('cicilan').value = cicilan;
+    }
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="card col-sm-4">
+            <div class="card-header">
+                <h3>CICILAN</h3>
+            </div>
+            <div class="card-body">
+                nominal
+                <input type="number" id="nominal" class="form-control">
+                periode
+                <select id="periode" class="form-control">
+                    <option value="12">12</option>
+                    <option value="24">24</option>
+                    <option value="36">36</option>
+                </select>
+                bunga (%)
+                <input type="number" id="bunga" class="form-control">
+
+                <button type="button" class="btn btn-success btn-block"
+                onclick="hitung()">
+                hitung
+                </button>
+                CICILAN
+                <input type="text" id="cicilan" class="form-control" readonly>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
